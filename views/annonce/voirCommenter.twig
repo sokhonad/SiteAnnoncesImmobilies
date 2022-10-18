@@ -1,0 +1,15 @@
+{% extends 'util/layout.twig' %}
+{% block title %}Les commentaires{% endblock %}
+{% block body %}
+   <div class="d-flex justify-content-center">
+                             Les commentaires</br>
+                              {% for comment in comments %}
+                              {% if comment.text %}
+                                     {{comment.commenterPseudo}}</br>
+                                      {{comment.text}}</br>
+                                {% endif %}
+                                                    {% endfor %}                    
+
+  </div>
+</form>
+{% endblock %}

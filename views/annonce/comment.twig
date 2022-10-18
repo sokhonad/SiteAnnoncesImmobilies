@@ -1,0 +1,21 @@
+{% extends 'util/layout.twig' %}
+{% block title %}Commenntaire{% endblock %}
+{% block body %}
+
+<form action="/comment/{{idAnnonce}}" class="row g-3" method="POST">
+  <h4>Commenntaire</h4>
+  <div class="col-8">
+    <input class="form-control" type="text" id="commenterId" name="commenterId" hidden="true"  value="{{user.id}}"required>
+  </div>
+  <div class="col-8">
+    <input class="form-control" type="text" id="commenterPseudo" name="commenterPseudo" hidden="true"  value="{{user.username}}" required>
+  </div>
+    <div class="col-8">
+<textarea name="text"
+   rows="5" cols="50">Vous pouvez écrire votre commentaire ici.</textarea>  </div>
+  <div class="col-8">
+    {# <a  href="/comment-annonce/{{idAnnonce}}"> commenter</a> #}
+    <button type="submit" class="btn btn-dark float-end">Envoyer</button>
+  </div>
+</form>
+{% endblock %}

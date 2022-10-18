@@ -1,0 +1,63 @@
+
+{% extends 'util/layout.twig' %}
+{% block title %}Modification annonce{% endblock %}
+{% block body %}
+<form action="/update-annonce/{{annonce.id}}" class="row g-3" method="POST" enctype="multipart/form-data">
+  <h4>Modification d'annonce</h4>
+   </div>
+  {# <div class="col-12">
+    <label for="post">Mot de passe</label>
+    <input class="form-control" type="text" id="post" name="post" placeholder="Mot de passe" required>
+  </div> #}
+  <div class="col-5">
+    <label for="text">titre</label>
+    <input class="form-control" type="text" id="titre" name="titre" placeholder="titre" value="{{annonce.titre}}"  required>
+    </div>
+    <div class="col-5">
+          <label for="type de bien">type de bien </label>
+          <select class="form-control" name="typedebien" id="type de bien"  value="{{annonce.titre}}" required>
+          <option value="vente">vente</option>
+          <option value="colocation">colocation</option>
+      </select>
+    </div>
+        </div>
+      </div>
+    <div class="col-5">
+          <label for="type de bien">status  de publication </label>
+          <select class="form-control" name="statusdepublication" id="status  de publication"  value="{{annonce.statusPublication}}" required>
+          <option value="publiée"> publiée</option>
+          <option value=" non publiée"> non publiée</option>
+      </select>
+    </div>
+    <div class="col-5">
+          <label for="type de bien">status de bien </label>
+          <select class="form-control" name="statusdebien" id="status de bien"  value="{{annonce.statusBien}}" required>
+          <option value="disponible">disponible</option>
+          <option value="loué">loué</option>
+          <option value="vendu">vendu</option>
+      </select>
+    </div>
+      <div class="col-5">
+    <label for="text">prix</label>
+    <input class="form-control" type="text" id="prix" name="prix" placeholder="prix"  value="{{annonce.prix}}" required>
+    </div>
+      <div class="col-5">
+    <label for="date">date de disponibilité</label>
+    <input class="form-control"  type="date" name="date"  value="{{annonce.dateDisponibilite}}"  required>
+    </div>
+      <div class="col-10">
+<textarea name="description"
+   rows="5" cols="50" >{{annonce.description}}</textarea>
+    </div>
+    <div  class="col-10">
+					<input type="file" class="form-control-file" 
+                    name="uploaded_file" value="{{annonce.photos}}"  multiple>
+    
+        </div>
+        
+    </div>
+  <div class="col-4">
+    <button type="submit" class="btn btn-dark float-end">envoyer</button>
+  </div>
+</form>
+{% endblock %}

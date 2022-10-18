@@ -1,0 +1,18 @@
+{% extends 'util/layout.twig' %}
+{% block title %}S'inscrire{% endblock %}
+{% block body %}
+<form action="/register" class="row g-3" method="POST">
+  <h4>Inscription</h4>
+  <div class="col-8">
+    <label for="email">Email</label>
+    <input class="form-control" type="email" id="email" name="username" placeholder="Email" required>
+  </div>
+  <div class="col-8">
+    <label for="password">Mot de passe</label>
+    <input class="form-control" type="password" id="password" name="password" placeholder="Mot de passe" required>
+  </div>
+  <div class="col-8">
+    <button type="submit" class="btn btn-dark float-end">S'inscrire</button>
+  </div>
+</form>
+{% endblock %}

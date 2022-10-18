@@ -1,0 +1,49 @@
+{% extends 'util/layout.twig' %}
+
+{# Titre de la page #}
+{% block title %}Les annonces {% endblock %}
+
+{# Ici vous mettez vos codes HTML et balises Twig au besoin #}
+{% block body %}
+            </thead>
+            </br>
+            <main class="container">
+                <section section class="row">
+                    {% for annonce in annonces %}
+                    <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-">
+                        <img src="{{annonce.photos}}" class="card-img" alt="..."  width ="500">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ annonce.titre }}</h5> </br>
+                                                         <strong>Type:</strong> {{ annonce.type }}
+                             </br>
+                                                        <strong>Status publication:</strong> {{ annonce.statusPublication }}
+                             </br>
+                                                        <strong>Status bien:</strong> {{ annonce.statusBien }} 
+                             </br>
+                                                       <strong> prix:</strong> {{ annonce.prix }} <strong>euros</strong>
+                            <p class="card-text">{{annonce.description }}</p>
+                            <p class="card-text"><small class="text-muted">Date  Disponibilite: {{ annonce.dateDisponibilite }}</small></p>
+                              {% if user %}
+                                {% if user.roles %}
+                                     <a href="/delete/{{annonce._id}}"><button type="button" class="btn btn-danger">supprimer</button></a>
+                                    <a href="/update/{{annonce._id}}"><button type="button" class="btn btn-info">modifier</button></a>
+                                 {% endif %}
+
+                            {% endif %}
+                            <a href="/comment-annonce/{{annonce._id}}"><button type="button" class="btn btn-secondary">commenter</button></a>
+                             <a href="/voirCommenter/{{annonce._id}}"><button type="button" class="btn btn-secondary">voir les commentaire</button></a>
+
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                     </div>
+                    {% endfor %}                    
+                </section>
+            </main>
+        </div>
+{% endblock %}
