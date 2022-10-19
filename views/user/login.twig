@@ -1,8 +1,8 @@
 {% extends 'util/layout.twig' %}
 {% block title %}connexion{% endblock %}
 {% block body %}
-
-<form action="/login" class="row g-3" method="POST">
+<div class="d-flex justify-content-center">
+<form action="/login" class="row g-3" method="POST" >
   <h4>connexion</h4>
   <div class="col-8">
     <label for="username">Email</label>
@@ -16,4 +16,5 @@
     <button type="submit" class="btn btn-dark float-end">Se connecter</button>
   </div>
 </form>
+</div>
 {% endblock %}
